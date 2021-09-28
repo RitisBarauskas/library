@@ -9,7 +9,7 @@ class AuthorSerializer(ModelSerializer):
     """Author serializer."""
 
     class Meta:
-        fields = fields = '__all__'
+        fields = 'first_name', 'second_name', 'birthday'
         model = Author
 
 
@@ -17,13 +17,15 @@ class BookSerializer(ModelSerializer):
     """Author serializer."""
 
     class Meta:
-        fields = fields = '__all__'
+        fields = 'title', 'author'
         model = Book
 
 
-class BookListWithExtraSerializer(ModelSerializer):
-    """Book list with Extra info"""
+class OneBookOnPageSerializer(ModelSerializer):
+    """Book list"""
+
+    author = AuthorSerializer(read_only=True, many=False)
 
     class Meta:
-        fields = ('book', 'extra_info')
-        model = Extra
+        fields = 'title', 'author'
+        model = Book
