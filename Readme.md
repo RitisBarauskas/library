@@ -20,11 +20,11 @@
 * python manage.py runserver
 
 ## API Documentation
-library/ - Постраничный вывод книг и авторов
-library/authors/ - список авторов
-library/authors/1 - вывод автора по id (например, 1)
-library/books/ - список книг
-library/books/2 - вывод книги по id (например, 2)
+1. library/ - Постраничный вывод книг и авторов
+2. library/authors/ - список авторов
+3. library/authors/1 - вывод автора по id (например, 1)
+4. library/books/ - список книг
+5. library/books/2 - вывод книги по id (например, 2)
 
 ## Author
 Ritis Barauskas
