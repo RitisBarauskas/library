@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'cacheops',
     'common'
 ]
 
@@ -91,8 +92,16 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 }
 
+
+CACHEOPS_REDIS = "redis://localhost:6379/1"
+CACHEOPS = {
+    'common.*': {'ops': 'all', 'timeout': 60},
+    '*.*': {'timeout': 60*60},
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
