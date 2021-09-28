@@ -1,5 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 from .serializers import AuthorSerializer, BookSerializer, BookListWithExtraSerializer
 from .models import Author, Book, Extra
 from .utils import OneResultOnPage
@@ -22,5 +24,7 @@ class BookListWithExtra(ModelViewSet):
     serializer_class = BookSerializer
     pagination_class = OneResultOnPage
     queryset = Book.objects.all()
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['author__first_name', 'author__second_name', 'title']
 
 
